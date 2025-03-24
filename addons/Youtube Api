@@ -1,0 +1,73 @@
+{
+  "collapsed": true,
+  "extID": "ByJaxAlt3",
+  "extName": "Youtube Api",
+  "color1Pick": false,
+  "color2Pick": false,
+  "color1": "#bd0f0f",
+  "color2": "#0DA57A",
+  "indexJS": null,
+  "menuIcon": null,
+  "blockIcon": null,
+  "editBlockID": "GetVideoname",
+  "blocks": [
+    {
+      "opcode": "Video_Id_Getter",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"265.765625\" height=\"40\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22ZnFlj_Z%2FvLKY4(%3BI__%3D%24%22%20class%3D%22blocklyDraggable%20blocklySelected%22%20data-shapes%3D%22reporter%20round%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2020%2C0%20H%20245.765625%20a%2020%2020%200%200%201%200%2040%20H%2020%20a%2020%2020%200%200%201%200%20-40%20z%22%2F%3E%3Cg%20data-id%3D%22j(qQ%3Fnl%23XOk)4_P)4NY%7C%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(152%2C4)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2093.765625%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20style%3D%22cursor%3A%20text%3B%22%20transform%3D%22translate(8%2C%200)%20%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2246.8828125%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EVideo%C2%A0Name%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(12%2C%204)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22132%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2266%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EGet%C2%A0Id%C2%A0Of%C2%A0Video%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "Get Id Of Video %1",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "Video Name",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "Video Name"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"Get Id Of Video %s\" argumentids=\"[&quot;{-Omw{3?Isfqo3x|[I`d&quot;]\" argumentnames=\"[&quot;Video Name&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "output",
+      "script": "Video_Id_Getter (args, util);\n  const VideoName = args.VideoName;\n\n const axios = require('axios');\nconst cheerio = require('cheerio');\n\nasync function getYouTubeVideoUrl(args,VideoName) {\n    const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(videoName)}`;\n\n    try {\n        const response = await axios.get(searchUrl);\n        const $ = cheerio.load(response.data);\n        const videoElement = $('a#video-title').first();\n        const videoUrl = videoElement.length ? `https://www.youtube.com${videoElement.attr('href')}` : 'No video found';\n        return videoUrl;\n    } catch (error) {\n        console.error('Error fetching video URL:', error);\n        return 'Error fetching video URL';\n  }\n}"
+    },
+    {
+      "opcode": "Creator",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"232.640625\" height=\"40\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%228f%2Bmv-xX%3Fpm2%24V2Q%23ZDe%22%20class%3D%22blocklyDraggable%20blocklySelected%22%20data-shapes%3D%22reporter%20round%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2020%2C0%20H%20212.640625%20a%2020%2020%200%200%201%200%2040%20H%2020%20a%2020%2020%200%200%201%200%20-40%20z%22%2F%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(12%2C%204)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22208.640625%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%22104.3203125%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ECreator's%C2%A0Channel's%C2%A0Name%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "Creator's Channel's Name",
+      "args": [],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"Creator's Channel's Name\" argumentids=\"[]\" argumentnames=\"[]\" argumentdefaults=\"[]\" warp=\"false\"></mutation></xml>",
+      "type": "output",
+      "script": "Creator (args, util){\n\n  return this.write(`Jaxon Union`);\n}\n"
+    },
+    {
+      "opcode": "GetVideoname",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"304.859375\" height=\"40\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22%7C%3DH80P%2Cmz6%5B8zoUEbGP5%22%20class%3D%22blocklyDraggable%20blocklySelected%22%20data-shapes%3D%22reporter%20round%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2020%2C0%20H%20284.859375%20a%2020%2020%200%200%201%200%2040%20H%2020%20a%2020%2020%200%200%201%200%20-40%20z%22%2F%3E%3Cg%20data-id%3D%22Wm%3F2Miv%5BRKdf*%5BXuXkiy%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(248.640625%2C4)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2036.21875%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2218.109375%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETXT%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(12%2C%204)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22228.640625%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%22114.3203125%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EGet%C2%A0Video%C2%A0Name%C2%A0Of%C2%A0Video%C2%A0Id%3A%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "Get Video Name Of Video Id: %1",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "TXT",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "TXT"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"Get Video Name Of Video Id: %s\" argumentids=\"[&quot;w@,AAp.Y*hB)uj`|-~0}&quot;]\" argumentnames=\"[&quot;TXT&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "output"
+    }
+  ],
+  "menus": [],
+  "addBlockType": "output",
+  "showMutation": false,
+  "blockScript": null,
+  "genOption": [
+    "micropython"
+  ],
+  "genHeadScript": null,
+  "blockGenerator": null,
+  "isShowCodePreview": false
+}
